@@ -1,27 +1,33 @@
 return {
-  {
-    "folke/tokyonight.nvim",
-    lazy = true,
-    opts = {
-      style = "night",
+    { -- tokyonight
+        "folke/tokyonight.nvim",
+        lazy = true,
+        opts = {
+            style = "night",
+        },
+    }, --tokyonight
+    { -- catppuccin
+        "catppuccin/nvim",
+        name = "catppuccin",
+        priority = 1000, -- ensure theme loads early
+        flavor = "mocha",
+        opts = {
+            -- custom colors
+            custom_highlights = function(colors)
+                return {
+                    Comment = { fg = colors.lavender, italic = true },
+                    Identifier = { fg = colors.teal },
+                    Constant = { fg = colors.peach },
+                    Function = { fg = colors.flamingo },
+                }
+            end,
+        },
+    }, -- catppuccin
+    {
+        -- load selected colorscheme
+        "LazyVim/LazyVim",
+        opts = {
+            colorscheme = "catppuccin",
+        },
     },
-  }, --tokyonight
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-    flavor = "mocha",
-    styles = {
-      comments = { "italics" },
-      conditionals = { "italics" },
-      functions = { "bold" },
-    },
-  },
-  {
-    -- load selected colorscheme
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin",
-    },
-  },
 }
