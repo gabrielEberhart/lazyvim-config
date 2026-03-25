@@ -4,6 +4,8 @@ return {
         formatters_by_ft = {
             lua = { "stylua" },
             javascript = { "prettierd", "prettier", stop_after_first = true },
+            c = { "clang_format" },
+            cpp = { "clang_format" },
         },
         -- set default options
         default_format_opts = {
@@ -23,7 +25,9 @@ return {
                 },
             },
             clang_format = {
-                extra_args = { "--style={BasedOnStyle:LLVM, IndentWidth: 4}" },
+                prepend_args = {
+                    "--style={BasedOnStyle: LLVM, IndentWidth: 4, TabWidth: 4 }",
+                },
             },
         },
     },
