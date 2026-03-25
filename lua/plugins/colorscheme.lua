@@ -15,9 +15,9 @@ return {
             -- custom colors
             custom_highlights = function(colors)
                 return {
-                    Comment = { fg = colors.teal, italic = true },
+                    Comment = { fg = colors.subtext0, italic = true },
                     Identifier = { fg = colors.sky },
-                    Constant = { fg = colors.peach },
+                    Constant = { fg = colors.peach, bold = true },
                     Function = { fg = colors.flamingo },
                 }
             end,
